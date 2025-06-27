@@ -1,5 +1,7 @@
 class Solution {
 public:
+    /*
+    Brute force approach
     int powerCnt(int n, int div){
         int cnt = 0;
         while(n%div == 0){
@@ -20,6 +22,19 @@ public:
         c_5 = powerCnt(n, 5);
 
         return n == pow(2, a_2)*pow(3, b_3)*pow(5, c_5);
+        
+    }
+    */
+    // Optimal approach
+    bool isUgly(int n) {
+        if (n <=0 ) return false;
+
+        for(int fact : {2,3, 5}){
+            while(n%fact == 0){
+                n /= fact;
+            }
+        }
+        return n == 1;
         
     }
 };
