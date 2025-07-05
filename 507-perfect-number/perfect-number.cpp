@@ -1,8 +1,7 @@
 class Solution {
 public:
     bool checkPerfectNumber(int num) {
-        if(num < 0) return false;
-        if(num == 1) return false;
+        if(num < 0 || num == 1) return false;
 
         int divSum = 1, i = 2;
         while( i <= sqrt(num)){
