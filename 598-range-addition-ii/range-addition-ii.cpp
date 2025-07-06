@@ -8,12 +8,10 @@ public:
         vector<int> xCod;
         vector<int> yCod;
         for(auto& i : ops){
-            xCod.push_back(i[0]);
-            yCod.push_back(i[1]);
+            xMin = min(xMin, i[0]);
+            yMin = min(yMin, i[1]);
         }
-        
-        xMin = *min_element(xCod.begin(), xCod.end());
-        yMin = *min_element(yCod.begin(), yCod.end());
+
         return xMin*yMin;
         
     }
