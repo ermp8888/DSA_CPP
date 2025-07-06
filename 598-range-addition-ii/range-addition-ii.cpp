@@ -5,8 +5,6 @@ public:
 
         int xMin = m, yMin = n;
 
-        vector<int> xCod;
-        vector<int> yCod;
         for(auto& i : ops){
             xMin = min(xMin, i[0]);
             yMin = min(yMin, i[1]);
