@@ -2,16 +2,19 @@ class Solution {
 public:
     double largestTriangleArea(vector<vector<int>>& points) {
         double triangleArea = 0.0f;
-        for(auto& p0 : points){
-            for(auto& p1 : points){
-                for(auto& p2 : points){
-                    double tmpArea = (p0[0]*p1[1] + p1[0]*p2[1] + p2[0]*p0[1]
-                    - p1[0]*p0[1] - p2[0]*p1[1] - p0[0]*p2[1]);
-                    if(tmpArea > triangleArea)
-                        triangleArea = tmpArea;
+        int n = points.size();
+        for(int i = 0; i < n; i++){
+            for(int j = i+1; j < n; j++){
+                for(int k = j+1; k < n; k++){
+                    double tmpArea = fabs(
+                        points[i][0]*(points[j][1] - points[k][1]) +
+                        points[j][0]*(points[k][1] - points[i][1]) +
+                        points[k][0]*(points[i][1] - points[j][1])
+                    ) / 2;
+                    triangleArea = max(tmpArea, triangleArea);
                 }
             }
         }
-        return 0.5*triangleArea;
+        return triangleArea;
     }
 };
