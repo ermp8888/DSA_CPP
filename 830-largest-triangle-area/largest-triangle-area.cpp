@@ -12,6 +12,6 @@ public:
                 }
             }
         }
-        return triangleArea / 2;
+        return 0.5*triangleArea;
     }
 };
