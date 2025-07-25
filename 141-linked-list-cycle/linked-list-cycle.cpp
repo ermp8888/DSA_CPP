@@ -13,10 +13,8 @@ public:
             return false;
         ListNode* slow = head;
         ListNode* fast = head;
-        while(slow != nullptr && fast != nullptr){
+        while(fast != nullptr && fast->next != nullptr){
             slow = slow->next;
-            if(fast->next == nullptr)
-                return false;
             fast = fast->next->next;
             if(slow == fast)
                 return true;
